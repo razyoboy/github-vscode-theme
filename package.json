@@ -29,7 +29,8 @@
     "light",
     "dark",
     "protanopia",
-    "colorblind"
+    "colorblind",
+    "rider"
   ],
   "contributes": {
     "themes": [
@@ -77,6 +78,11 @@
         "label": "GitHub Dark",
         "uiTheme": "vs-dark",
         "path": "./themes/dark.json"
+      },
+      {
+        "label": "GitHub Rider Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/rider-dark.json"
       }
     ]
   },

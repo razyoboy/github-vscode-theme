@@ -37,6 +37,12 @@ const darkDimmedTheme = getTheme({
   name: "GitHub Dark Dimmed"
 })
 
+// Add Rider theme
+const riderTheme = getTheme({
+  theme: "rider",
+  name: "GitHub Rider Dark",
+});
+
 // Classic
 
 const lightTheme = getClassicTheme({
@@ -62,5 +68,6 @@ fs.mkdir("./themes", { recursive: true })
     fs.writeFile("./themes/dark-dimmed.json", JSON.stringify(darkDimmedTheme, null, 2)),
     fs.writeFile("./themes/light.json", JSON.stringify(lightTheme, null, 2)),
     fs.writeFile("./themes/dark.json", JSON.stringify(darkTheme, null, 2)),
+    fs.writeFile("./themes/rider-dark.json", JSON.stringify(riderTheme, null, 2)),
   ]))
   .catch(() => process.exit(1))

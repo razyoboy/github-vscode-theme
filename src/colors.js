@@ -41,6 +41,50 @@ function getColors(theme) {
       return darkColorblindColors;
     case "dark_dimmed":
       return dimmedColors;
+    case "rider":
+      // Clone dark colors as a starting point
+      const riderColors = JSON.parse(JSON.stringify(darkColors));
+      
+      // Configure with GitHub_Dark colors from the JetBrains theme
+      // Background and main UI colors
+      riderColors.canvas.default = "#1e1e1e"; // CONSOLE_BACKGROUND_KEY from XML
+      riderColors.canvas.inset = "#252526";   // From theme.json UI background
+      riderColors.canvas.overlay = "#252526"; // Match inset for consistency
+      
+      // Text colors
+      riderColors.fg.default = "#c9d1d9";     // DEFAULT_COMMA from XML
+      riderColors.fg.muted = "#8b949e";      // DEFAULT_DOC_COMMENT from XML
+      
+      // Highlight colors
+      riderColors.accent.fg = "#79c0ff";     // CARET_COLOR from XML
+      
+      // Syntax highlighting colors based on the GitHub_Dark.xml
+      
+      // Functions (purple/lilac in original theme)
+      riderColors.scale.purple[2] = "#d2a8ff"; // DEFAULT_FUNCTION_DECLARATION
+      
+      // Keywords (red in original theme)
+      riderColors.scale.red[3] = "#ff7b72";   // DEFAULT_KEYWORD
+      
+      // Strings (light blue in original theme)
+      riderColors.scale.blue[1] = "#a5d6ff";  // DEFAULT_STRING
+      
+      // Variables/identifiers (orange in original theme)
+      riderColors.scale.orange[2] = "#ffa657"; // DEFAULT_IDENTIFIER
+      
+      // Types/constants (blue in original theme)
+      riderColors.scale.blue[2] = "#79c0ff";  // DEFAULT_CONSTANT
+      
+      // Comments (gray in original theme)
+      riderColors.scale.gray[3] = "#8b949e";  // DEFAULT_DOC_COMMENT
+      
+      // HTML/XML tags (green in original theme)
+      riderColors.scale.green[1] = "#7ee787"; // HTML_TAG_NAME
+      
+      // Active line background
+      riderColors.codemirror.activelineBg = "#303030"; // CARET_ROW_COLOR from XML
+      
+      return riderColors;
     default:
       throw new Error(`Colors are missing for value: ${theme}`);
   }
