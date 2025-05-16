@@ -31,7 +31,7 @@ function getTheme({ theme, name }) {
   }
 
   const lightDark = (light, dark) => {
-    return themes({ light: light, light_high_contrast: light, light_colorblind: light, dark: dark, dark_high_contrast: dark, dark_colorblind: dark, dark_dimmed: dark })
+    return themes({ light: light, light_high_contrast: light, light_colorblind: light, dark: dark, dark_high_contrast: dark, dark_colorblind: dark, dark_dimmed: dark, rider: dark })
   }
 
   const alpha = (color, alpha) => {
@@ -447,9 +447,40 @@ function getTheme({ theme, name }) {
         },
       },
       {
+        scope: [
+          "variable.other.module", 
+          "variable.other.object.js", 
+          "variable.other.object.property", 
+          "variable.other.readwrite.js", 
+          "support.module"
+        ],
+        settings: {
+          foreground: color.fg.default
+        },
+      },
+      {
         scope: "variable.other",
         settings: {
           foreground: color.fg.default,
+        },
+      },
+      {
+        scope: [
+          "variable.other.property",
+          "variable.other.private",
+          "variable.other.readwrite.private"
+        ],
+        settings: {
+          foreground: color.fg.default,
+        },
+      },
+      {
+        scope: [
+          "meta.method.accessor",
+          "entity.name.function.accessor"
+        ],
+        settings: {
+          foreground: lightDark(scale.purple[5], scale.purple[2])
         },
       },
       {
@@ -691,6 +722,31 @@ function getTheme({ theme, name }) {
         scope: ["constant.other.reference.link", "string.other.link"],
         settings: {
           foreground: lightDark(scale.blue[8], scale.blue[1]),
+        },
+      },
+      {
+        scope: ["meta.tag", "punctuation.definition.tag"],
+        settings: {
+          foreground: lightDark(scale.green[6], scale.green[1])
+        },
+      },
+      {
+        scope: ["punctuation.definition.bracket", "punctuation.definition.parameters", "punctuation.section", "meta.brace", "punctuation.terminator.statement", "punctuation.separator.key-value", "punctuation.separator.parameter"],
+        settings: {
+          foreground: lightDark(scale.gray[6], scale.gray[4])
+        },
+      },
+      {
+        scope: ["punctuation.accessor", "punctuation.separator.method", "keyword.operator"],
+        settings: {
+          foreground: lightDark(scale.red[5], scale.red[3])
+        },
+      },
+      {
+        scope: "markup.ignored",
+        settings: {
+          foreground: lightDark(scale.gray[1], scale.gray[8]),
+          background: lightDark(scale.blue[6], scale.blue[2])
         },
       },
     ],
